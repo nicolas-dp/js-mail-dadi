@@ -8,26 +8,37 @@ stampa un messaggio appropriato sull’esito del controllo.*/
 
 // Creo l'array con alcune mail ranodom
 const arrayEmail = new Array("nicolas@gmail.com", "gianni@gmail.com", "franco@gmail.com")
-// Chiedo all'utente di inserire la propria mail
-const emailUtente = prompt("Inserisci qui la tua mail")
+// Selezioniamo il button
+const actionButton = document.querySelector(".btn_click");
 
-
-//Inizio ciclo for per contare il contenuto dell'array
-for (let i = 0; i < arrayEmail.length; i++) {
-    //Inserisco l'elemento contato all'interno di una variabile
-    const elementArray = arrayEmail[i];
-    if (emailUtente == elementArray ) {
-        //Verifico se l'elemento inserito dall'utente è uguale a 
-        //qualche elemento nella lista - Se è si?    
-        console.log(" Presente all'interno della lista");
-    } else if (emailUtente !== elementArray ) {
-        //Verifico se l'elemento inserito dall'utente è uguale a 
-        //qualche elemento nella lista - Se è si? 
-        console.log(" NON PRESENTE all'interno della lista");
-    } else {
+actionButton.addEventListener('click', function () {
+   
     
+    
+    //Inizio ciclo for per contare il contenuto dell'array
+    for (let i = 0; i < arrayEmail.length; i++) {
+        const emailUtente = document.getElementById("email").value;
+        /* let risultato = document.querySelector(".result"); */
+        //Inserisco l'elemento contato all'interno di una variabile
+        const elementArray = arrayEmail[i];
+        if (emailUtente === elementArray) {
+            console.log(`L'email è presente nella lista`);
+            //Verifico se l'elemento inserito dall'utente è DIVERSO a 
+            //qualche elemento nella lista - Se è si?
+            /* risultato.innerHTML = `La mail è presente nella lista` */
+        } else {
+            console.log(`L'email NON è presente nella lista`);
+            //Verifico se l'elemento inserito dall'utente è DIVERSO a 
+            //qualche elemento nella lista - Se è si?
+            /* risultato.innerHTML = `La mail NON è presente nella lista` */
+        }
+
+        /* document.querySelector(".costo_ticket").innerHTML += prezzo_finito; */
     }
-}
+})
+
+
+
 
 /* ************************************************** */
 
@@ -61,3 +72,10 @@ if (randomUtente > randomBot) {
     //Nei casi in cui sarà uguale allora la parita finirà in parità
     console.log("La parita è finita il parità");
 }
+
+
+
+/* **************** BONUS *************
+Usiamo un input e un bottone per inserire 
+la mail e poi mostriamo i risultati in pagina. 
+*/
