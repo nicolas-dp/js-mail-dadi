@@ -1,0 +1,13 @@
+body{
+    background-color: cadetblue;
+}
+
+.dadi{
+    display: none;
+} 
+
+
+.risultato_numerico{
+    background-color: white;
+    border-radius: 5px;
+}

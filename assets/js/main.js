@@ -50,24 +50,47 @@ Se dobbiamo confrontare qualcosa che "cosa" ci serve?*/
 //Dichiaro e inizializzo due variabili
 let randomUtente = Math.floor(Math.random() * 6) + 1;
 let randomBot = Math.floor(Math.random() * 6) + 1;
-
+let elementContainerDadi = document.querySelector(".dadi");
+let elementNumberUser = document.querySelector(".numero_utente>div");
+let elementNumberBot = document.querySelector(".numero_bot>div");
+let risultatoText = document.querySelector(".risultato");
+let buttonGioco = document.querySelector(".btn_gioco");
 //Stampo le due variabili per verificare cosa contengono
-console.log(randomUtente);
-console.log(randomBot);
+/* console.log(randomUtente);
+console.log(randomBot); */
 
 //Impongo una condizione
-if (randomUtente > randomBot) {
-    // Se random utente è maggiore di randomBot allora 
-    // scrive quanto riportato in basso
-    console.log("Utente hai vinto");
-} else if (randomBot > randomUtente) {
-    // Se viceversa, randomBot è maggiore di randomUtente allora 
-    // scrive quanto riportato in basso
-    console.log("Mi dispiace ha vinto il BOT");
-} else {
-    //Nei casi in cui sarà uguale allora la parita finirà in parità
-    console.log("La parita è finita il parità");
-}
+
+buttonGioco.addEventListener("click", function () {
+    elementContainerDadi.classList.remove("dadi");
+    if (randomUtente > randomBot) {
+        
+        // Se random utente è maggiore di randomBot allora 
+        // scrive quanto riportato in basso
+        elementNumberUser.innerHTML = randomUtente;
+        elementNumberBot.innerHTML = randomBot;
+        risultatoText.style = "color: green";
+        risultatoText.innerHTML = "Hai vinto";
+    } else if (randomBot > randomUtente) {
+        
+        // Se viceversa, randomBot è maggiore di randomUtente allora 
+        // scrive quanto riportato in basso
+        elementNumberUser.innerHTML = randomUtente;
+        elementNumberBot.innerHTML = randomBot;
+        risultatoText.style = "color: red";
+        risultatoText.innerHTML = "Mi dispiace ha vinto il BOT";
+    } else {
+        //Nei casi in cui sarà uguale allora la parita finirà in parità
+
+        elementNumberUser.innerHTML = randomUtente;
+        elementNumberBot.innerHTML = randomBot;
+        risultatoText.style = "color: blue";
+        risultatoText.innerHTML = "La parita è finita il parità";
+    }
+    
+})
+
+
 
 
 
