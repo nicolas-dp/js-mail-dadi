@@ -12,29 +12,25 @@ const arrayEmail = new Array("nicolas@gmail.com", "gianni@gmail.com", "franco@gm
 const actionButton = document.querySelector(".btn_click");
 
 actionButton.addEventListener('click', function () {
-   
-    
-    
+    let risultato = document.querySelector(".result");
+    let trovata = false;
+    const emailUtente = document.getElementById("email").value;
     //Inizio ciclo for per contare il contenuto dell'array
     for (let i = 0; i < arrayEmail.length; i++) {
-        const emailUtente = document.getElementById("email").value;
-        /* let risultato = document.querySelector(".result"); */
+        
         //Inserisco l'elemento contato all'interno di una variabile
         const elementArray = arrayEmail[i];
-        if (emailUtente === elementArray) {
-            console.log(`L'email è presente nella lista`);
-            //Verifico se l'elemento inserito dall'utente è DIVERSO a 
-            //qualche elemento nella lista - Se è si?
-            /* risultato.innerHTML = `La mail è presente nella lista` */
-        } else {
-            console.log(`L'email NON è presente nella lista`);
-            //Verifico se l'elemento inserito dall'utente è DIVERSO a 
-            //qualche elemento nella lista - Se è si?
-            /* risultato.innerHTML = `La mail NON è presente nella lista` */
+        if (emailUtente == elementArray) {
+            trovata = true;
         }
-
-        /* document.querySelector(".costo_ticket").innerHTML += prezzo_finito; */
     }
+
+    if (trovata == true) {
+        risultato.innerHTML = `La mail è presente nella lista` 
+    } else {
+        risultato.innerHTML = `La mail NON è presente nella lista` 
+    }
+    
 })
 
 
